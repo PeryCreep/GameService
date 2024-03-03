@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=20020903QWkl@
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+  game-service:
+    image: game-service
+    depends_on:
+      - db
+    ports:
+      - "9081:9081"
+    environment:
+      - DB_PASSWORD=20020903QWkl@
+      - DB_NAME=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+volumes:
+  db:
+    driver: local
