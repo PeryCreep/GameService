@@ -1,0 +1,17 @@
+<configuration>
+
+    <!-- Уровень корневого логгера, определяет уровень логирования по умолчанию -->
+    <root level="debug">
+        <!-- Настройки аппендера, определяют куда и в каком формате будут выводиться логи -->
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!-- Конфигурация аппендера для вывода логов в консоль -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Паттерн форматирования сообщений лога -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+</configuration>
